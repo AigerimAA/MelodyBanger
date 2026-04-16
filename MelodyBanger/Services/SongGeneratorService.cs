@@ -42,7 +42,7 @@ namespace MelodyBanger.Services
             {
                 Items = songs,
                 CurrentPage = p.Page,
-                TotalPages = 100,
+                TotalPages = int.MaxValue,
                 PageSize = p.PageSize
             };
         }
