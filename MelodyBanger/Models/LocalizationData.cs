@@ -13,5 +13,6 @@
         public List<string> BandNameParts { get; set; } = new();
         public List<string> ReviewPhrases { get; set; } = new();
         public List<string> ArtistPrefixes { get; set; } = new();
+        public List<string> LyricsLines { get; set; } = new();
     }
 }

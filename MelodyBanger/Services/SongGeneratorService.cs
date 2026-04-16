@@ -110,12 +110,12 @@ namespace MelodyBanger.Services
         private string GenerateLyrics(Random rnd, LocalizationData locale)
         {
             int linesCount = ExecuteTimes(8.4, rnd);
-
             var lines = new List<string>();
+
             for (int i = 0; i < linesCount; i++)
             {
-                var phrase = Pick(rnd, locale.ReviewPhrases);
-                lines.Add(phrase);
+                var line = Pick(rnd, locale.LyricsLines);
+                lines.Add(line);
             }
             return string.Join("\n", lines);
         }
