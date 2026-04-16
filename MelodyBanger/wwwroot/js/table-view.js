@@ -14,7 +14,7 @@
 
             this.render(data.items);
 
-            pageInfo.textContent = `Page ${data.currentPage} of ${data.totalPages}`;
+            pageInfo.textContent = `Page ${data.currentPage}`;
             prevPageBtn.disabled = data.currentPage <= 1;
             nextPageBtn.disabled = data.currentPage >= data.totalPages;
 
