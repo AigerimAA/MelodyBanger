@@ -5,10 +5,10 @@ EXPOSE 8080
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["MelodyBanger.csproj", "."]
+COPY ["MelodyBanger/MelodyBanger.csproj", "."]
 RUN dotnet restore "MelodyBanger.csproj"
 
-COPY . .
+COPY MelodyBanger/ .
 RUN dotnet publish "MelodyBanger.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base
