@@ -13,7 +13,6 @@ namespace MelodyBanger.Services
     {
         private readonly IMemoryCache _cache;
         private const int CoverSize = 400;
-        private int _lastStyle = -1;
 
         public CoverGeneratorService(IMemoryCache cache)
         {
@@ -68,11 +67,7 @@ namespace MelodyBanger.Services
             using var image = new Image<Rgba32>(CoverSize, CoverSize);
 
             var style = rng.Next(29);
-            while (style == _lastStyle)
-            {
-                style = rng.Next(29);
-            }
-            _lastStyle = style;
+            
 
             if (style < 9)
             {
@@ -97,7 +92,7 @@ namespace MelodyBanger.Services
 
         private void DrawRealisticCover(Image<Rgba32> image, Random rng, string title, string artist, string genre)
         {
-            var style = rng.Next(18);
+            var style = rng.Next(20);
 
             switch (style)
             {
