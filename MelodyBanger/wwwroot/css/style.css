@@ -21,7 +21,7 @@ body {
     border-radius: 12px;
     padding: 16px 24px;
     display: flex;
-    gap: 32px;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 24px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -42,17 +42,32 @@ body {
     gap: 6px;
 }
 
-.toolbar-group select,
+.toolbar-group select{
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 140px;  
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px;
+}
+
 .toolbar-group input {
     padding: 8px 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 14px;
+    min-width: 140px; 
+    cursor: pointer;
 }
 
-.toolbar-group input[type="number"] {
+/*.toolbar-group input[type="number"] {
     width: 140px;
-}
+}*/
 
 .icon-btn {
     background: #667eea;
