@@ -1,0 +1,8 @@
+wwwroot\js\gallery-view.js
+wwwroot\js\app.js
+wwwroot\js\table-view.js
+wwwroot\js\audio-player.js
+wwwroot\index.html
+wwwroot\css\style.css
+wwwroot\js\likes.js
+wwwroot\fonts\Roboto-Regular.ttf

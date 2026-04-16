@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "ckqRCGndlPA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Aigerim\\Documents\\Aigerim\\ItransitionProjects\\MelodyBanger\\MelodyBanger\\MelodyBanger.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aigerim\\.nuget\\packages\\melanchall.drywetmidi\\8.0.3\\melanchall.drywetmidi.8.0.3.nupkg.sha512",
+    "C:\\Users\\Aigerim\\.nuget\\packages\\sixlabors.fonts\\2.0.4\\sixlabors.fonts.2.0.4.nupkg.sha512",
+    "C:\\Users\\Aigerim\\.nuget\\packages\\sixlabors.imagesharp\\3.1.7\\sixlabors.imagesharp.3.1.7.nupkg.sha512",
+    "C:\\Users\\Aigerim\\.nuget\\packages\\sixlabors.imagesharp.drawing\\2.1.4\\sixlabors.imagesharp.drawing.2.1.4.nupkg.sha512"
+  ],
+  "logs": []
+}
