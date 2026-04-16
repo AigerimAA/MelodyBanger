@@ -11,7 +11,7 @@ RUN dotnet restore "MelodyBanger.csproj"
 COPY . .
 RUN dotnet publish "MelodyBanger.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-FROM base AS final
+FROM base
 WORKDIR /app
 COPY --from=build /app/publish .
 
