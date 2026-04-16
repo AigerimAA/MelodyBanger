@@ -29,7 +29,7 @@ namespace MelodyBanger.Services
                 {
                     Index = globalIndex,
                     Title = GenerateTitle(contentRandom, locale),      
-                    Artist = GenerateArtist(contentRandom, locale),   
+                    Artist = GenerateArtist(contentRandom, locale, p.Lang),   
                     Album = GenerateAlbum(contentRandom, locale),    
                     Genre = Pick(contentRandom, locale.Genres),       
                     Likes = GenerateLikes(likesRandom, p.Likes),  
@@ -71,9 +71,27 @@ namespace MelodyBanger.Services
             return ReplacePatterns(pattern, locale, randomNumber);
         }
 
-        private string GenerateArtist(Random randomNumber, LocalizationData locale)
+        private string GenerateArtist(Random randomNumber, LocalizationData locale, string lang)
         {
-            return randomNumber.Next(2) == 0 ? GeneratePersonName(randomNumber, locale) : GenerateBandName(randomNumber, locale);
+            if (lang == "kz")
+            {
+                return randomNumber.Next(2) == 0 
+                    ? GeneratePersonName(randomNumber, locale) 
+                    : GenerateBandName(randomNumber, locale);
+            }
+            
+            var faker = new Faker(lang);
+            
+            if (randomNumber.Next(2) == 0)
+            {
+                return faker.Name.FullName();
+            }
+            else
+            {
+                var bandNames = new[] { "The ", "The ", "", "", "The " };
+                var suffix = new[] { "Band", "Project", "Experience", "Collective", "Sound" };
+                return bandNames[randomNumber.Next(bandNames.Length)] + faker.Random.WordsArray(1, 2)[0] + " " + suffix[randomNumber.Next(suffix.Length)];
+            }
         }
 
         private string GeneratePersonName(Random randomNumber, LocalizationData locale)
