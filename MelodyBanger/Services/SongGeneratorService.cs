@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography;
-using MelodyBanger.Models;
+﻿using MelodyBanger.Models;
 
 namespace MelodyBanger.Services
 {
@@ -23,18 +22,19 @@ namespace MelodyBanger.Services
                 int globalIndex = (p.Page - 1) * p.PageSize + i + 1;
 
                 var songSeed = HashCode.Combine(p.Seed, globalIndex);
-                var songRandom = new Random(songSeed);  
+                var contentRandom = new Random(songSeed);     
+                var likesRandom = new Random(songSeed);
 
                 songs.Add(new Song
                 {
                     Index = globalIndex,
-                    Title = GenerateTitle(songRandom, locale),      
-                    Artist = GenerateArtist(songRandom, locale),   
-                    Album = GenerateAlbum(songRandom, locale),    
-                    Genre = Pick(songRandom, locale.Genres),       
-                    Likes = GenerateLikes(songRandom, p.Likes),  
-                    Review = Pick(songRandom, locale.ReviewPhrases),
-                    Lyrics = GenerateLyrics(songRandom, locale)
+                    Title = GenerateTitle(contentRandom, locale),      
+                    Artist = GenerateArtist(contentRandom, locale),   
+                    Album = GenerateAlbum(contentRandom, locale),    
+                    Genre = Pick(contentRandom, locale.Genres),       
+                    Likes = GenerateLikes(likesRandom, p.Likes),  
+                    Review = Pick(contentRandom, locale.ReviewPhrases),
+                    Lyrics = GenerateLyrics(contentRandom, locale)
                 });
             }
 
