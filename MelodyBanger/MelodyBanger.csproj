@@ -19,4 +19,10 @@
     <Folder Include="Localization\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\fonts\Roboto-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

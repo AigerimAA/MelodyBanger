@@ -836,26 +836,24 @@ namespace MelodyBanger.Services
         {
             try
             {
-                var families = SystemFonts.Families.ToList();
-                if (families.Count == 0) return;
+                var fontPath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/fonts/Roboto-Regular.ttf");
 
-                var family = families.FirstOrDefault(f => f.Name.Contains("Arial") || f.Name.Contains("Segoe") || f.Name.Contains("Times"));
-                if (string.IsNullOrEmpty(family.Name))
+                if (!File.Exists(fontPath))
                 {
-                    family = families[0];
+                    return;
                 }
 
-                var titleFont = family.CreateFont(26, FontStyle.Bold);
-                var artistFont = family.CreateFont(18, FontStyle.Regular);
+                var fontCollection = new FontCollection();
+                var fontFamily = fontCollection.Add(fontPath);
+                var titleFont = fontFamily.CreateFont(16, FontStyle.Bold);
+                var artistFont = fontFamily.CreateFont(12, FontStyle.Regular);
 
-                var yPosTitle = size * 0.65f;
-                var yPosArtist = size * 0.82f;
-                var textPadding = 20;
+                var yPosTitle = size * 0.72f;
+                var yPosArtist = yPosTitle + 22;
+                var textPadding = 16;
 
-                ctx.DrawText(title, titleFont, Color.FromRgba(0, 0, 0, 200), new PointF(textPadding + 2, yPosTitle + 2));
-                ctx.DrawText(title, titleFont, Color.White, new PointF(textPadding, yPosTitle));
-                ctx.DrawText(artist, artistFont, Color.FromRgba(0, 0, 0, 180), new PointF(textPadding + 1, yPosArtist + 1));
-                ctx.DrawText(artist, artistFont, Color.FromRgba(220, 220, 220, 255), new PointF(textPadding, yPosArtist));
+                ctx.DrawText(title, titleFont, Color.FromRgba(255, 255, 255, 230), new PointF(textPadding, yPosTitle));
+                ctx.DrawText(artist, artistFont, Color.FromRgba(200, 200, 200, 200), new PointF(textPadding, yPosArtist));
             }
             catch (Exception ex)
             {
