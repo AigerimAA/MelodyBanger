@@ -1,4 +1,5 @@
 ﻿using MelodyBanger.Models;
+using Bogus;
 
 namespace MelodyBanger.Services
 {
